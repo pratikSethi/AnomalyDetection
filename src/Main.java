@@ -9,7 +9,7 @@ public class Main {
 
         // TODO: Decide the following hyperparameters. They depend on data size but take any value for now
         final int NUM_OF_TREES = 3;
-        final int SUBSAMPLING_SIZE = 5;
+        final int SUBSAMPLING_SIZE = 8;
 
         System.out.println("Hello World!");
         System.out.println("Number of Trees :: " + NUM_OF_TREES);

@@ -51,7 +51,7 @@ public class IsolationForest {
             // after getting the sampled data create a tree and add it to the set
             //IsolationTree tempTree = new IsolationTree(subSampledData, 0, heightLimit);
 
-            this.trees.add(new IsolationTree(subSampledData, 0, heightLimit));
+            this.trees.add(new IsolationTree(subSampledData, heightLimit));
             //System.out.println("SubSampledData is :: " + subSampledData);
         }
         return trees;
@@ -61,7 +61,7 @@ public class IsolationForest {
         //System.out.println("Inside subSampledData");
         List<List<Double>> subSampledData = new ArrayList<>();
 
-        Set<Integer> randomUniqueIndexes = RandomUtil.getRandomNumbersInRange(subSamplingSize, 0, 5);
+        Set<Integer> randomUniqueIndexes = RandomUtil.getSetOfRandomNumbersInRange(subSamplingSize, 0, nDimData.size());
         for (Integer i : randomUniqueIndexes) {
             subSampledData.add(this.nDimData.get(i));
 
