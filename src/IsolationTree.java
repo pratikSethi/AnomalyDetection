@@ -29,6 +29,13 @@ public class IsolationTree {
 
     public static final int TWO = 2;
 
+    public Node getRoot() {
+        return root;
+    }
+
+    public void setRoot(Node root) {
+        this.root = root;
+    }
 
     public IsolationTree(List<List<Double>> sampledData, int heightLimit) {
         this.sampledData = sampledData;
@@ -68,10 +75,11 @@ public class IsolationTree {
         // TODO: 2. Randomly select attribute from Q
         int randQ = RandomUtil.getRandomNumberInRange(0, nodeData.get(0).size() - 1);
         System.out.println("randQ :: "+ randQ);
-
+        current.setSplitAtt(randQ);
         // TODO: 3. randomly select a split point p from max and min
         //          values of attribute q in X
         List<Double> randAttributeVals = new ArrayList<>();
+
 
         for (List<Double> datapoints : nodeData){
             randAttributeVals.add(datapoints.get(randQ));
@@ -80,6 +88,7 @@ public class IsolationTree {
         Double randSplitP = RandomUtil.getRandomNumberInRange(
                 Collections.min(randAttributeVals), Collections.max(randAttributeVals));
 
+        current.setSplitValue(randSplitP);
         System.out.println("randSplitP :: " + randSplitP);
 
 

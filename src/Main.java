@@ -2,6 +2,7 @@ import util.FileUtil;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 public class Main {
 
@@ -47,11 +48,12 @@ public class Main {
 
         IsolationForest isolationForest = new IsolationForest(NUM_OF_TREES, SUBSAMPLING_SIZE, formattedDataPoints);
         // TODO: 2. Initialize Forest
-        isolationForest.createForest();
+        Set<IsolationTree> isolforest =  isolationForest.createForest();
 
 
-
-
+        PathLength pathLength = new PathLength(formattedDataPoints, isolforest);
+        //pathLength.traverse(formattedDataPoints.get(0));
+        pathLength.findAnomalies(topAnomalies);
         // Evaluating Stage
         //2. Derive an anomaly score
 
